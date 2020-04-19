@@ -1,65 +1,47 @@
-class User:
+import unittest
+from password import User, Credential
+
+class TestUser(unittest.TestCase):
     """
-    Class that generates new instances of Users
-    """
-    user_list = []
+        Test class that defines test cases for the user class behaviours.
 
-    def __init__(self, name, user_password):
-        self.name = name
-        self.user_password = user_password
+        Args:
+        unittest.TestCase: TestCase class that helps in creating test cases
+        """
 
-    def save_user(self):
-        """
-        save_user method saves user objects into user_list
-        """
-        User.user_list.append(self)
+    def setUp(self):
+        self.new_user = User("Betty", "12056")
 
-    def delete_user(self):
-        """
-        delete_user method deletes saved contact
-        """
-        User.user_list.remove(self)
-class Credential:
-    """
-    Class that generates new instances of credentials
-    """
-    credential_list = []
+    def tearDown(self):
+        User.user_list = []
 
-    def __init__(self, account, account_username, account_password):
-        self.account = account
-        self.account_username = account_username
-        self.account_password = account_password
+    def test_init(self):
+        self.assertEqual(self.new_user.name, "Betty")
+        self.assertEqual(self.new_user.user_password, "12056")
 
-    def save_credential(self):
+    def test_save_user(self):
         """
-        save_credential method saves user objects into credential_list
-        """
-        Credential.credential_list.append(self)
+            test_save_user test case to test if the user object is saved into
+            the user list
+            add
+            """
 
-    def delete_credential(self):
-        """
-        delete_credential method deletes saved contact
-        """
-        Credential.credential_list.remove(self)
+        self.new_user.save_user()  # saving the new users
+        self.assertEqual(len(User.user_list), 1)
 
-    def test_save_credential(self):
-        pass
-    
-    @classmethod
-    def find_by_account_username(cls, account_username):
-        for credential in cls.credential_list:
-            if credential.account_username == account_username:
-                return credential
-    @classmethod
-    def credential_exists(cls, account_username):
-        for credential in cls.credential_list:
-            if credential.account_username == account_username:
-                return True
-            return False
-    @classmethod
-    def display_credentials(cls):
-        return cls.credential_list
+    def test_save_multiple_user(self):
+        self.new_user.save_user()
+        test_user = User("Gakii", "12345")  # new user
+        test_user.save_user()
+        self.assertEqual(len(User.user_list), 2)
 
-    @classmethod
-    def display_all_credentials(cls):
-        return cls.credential_list
+    def test_delete_user(self):
+        """
+            test_delete_user to test if we can remove a user from our users list
+            """
+        self.new_user.save_user()
+        test_user = User("Gakii", "12345")
+        test_user.save_user()
+
+        self.new_user.delete_user()
+        self.assertEqual(len(User.user_list), 1)
