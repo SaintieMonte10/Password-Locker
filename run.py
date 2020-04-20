@@ -120,7 +120,6 @@ def main():
 
     print(f"Hello {user_name}, welcome to password locker")
     print("\n")
-    print("-"*100)
     ask = input(f"Hello {user_name}. Do you have an Account? YES/N0 > ").lower()
 
     if ask == "no":
@@ -129,12 +128,26 @@ def main():
         create = input(
             f"Hello {user_name}. Do you want a generated password? YES/N0 > ")
         if create == "no":
-            print("-"*100)
+            print("-"*87)
             print("|Don't mind if your password is not visible as you type. WE go your password secured.|")#
             print("-"*87)
             getpass.getpass()
             print("YOU ARE NOW LOGGED IN")
-        
+        # elif create == "yes":
+        #     def random_password(string_length):
+        #         """
+        #         Parameters
+        #         ----------
+        #         string_length
+        #         Returns
+        #         -------
+        #         """
+        #         letters = string.ascii_letters
+        #         return "".join(random.choice(letters) for i in range(string_length))
+
+        #     print(
+        #         f"Your random password is: ", random_password(8))
+        #     print("You are now logged in: ")
         while True:
             print("""
             USE THE SHORT CODES
@@ -145,7 +158,6 @@ def main():
     5. gp - to generate a random password
     6. ex- to exit 
             """)
-            print('-'*50)
             short_code = input("Use short-codes to navigate > ").lower()
 
             if short_code == "cc":

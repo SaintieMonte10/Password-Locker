@@ -19,6 +19,8 @@ class User:
         delete_user method deletes saved contact
         """
         User.user_list.remove(self)
+
+
 class Credential:
     """
     Class that generates new instances of credentials
