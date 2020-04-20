@@ -115,7 +115,7 @@ def main():
     Returns
     -------
     """
-    # global account_password
+  
     user_name = input("Enter your name: ")
 
     print(f"Hello {user_name}, welcome to password locker")
@@ -129,13 +129,13 @@ def main():
         print("-"*20)
         create = input(
             f"Hello {user_name}. Do you want a generated password? YES/N0 > ")
-        if create == "no":
+        if create == "NO":
             print("-"*87)
             print("|Don't mind if your password is not visible as you type. WE go your password secured.|")#
             print("-"*87)
             getpass.getpass()
             print(f"YOU ARE NOW LOGGED IN SUCCESSFULY TO {social_media} HAVE FUN!!")
-        elif create == "yes":
+        elif create == "YES":
             def random_password(string_length):
                 """
                 Parameters
@@ -146,6 +146,7 @@ def main():
                  """
                 letters = string.ascii_letters
                 return "".join(random.choice(letters) for i in range(string_length))
+            print("Your password is ")
 
             print(
                 f"Your random password is: ", random_password(8))
@@ -178,12 +179,13 @@ def main():
                 save_credential(create_credential(account, account_username, account_password))
 
                 print("\n")
-                print(f"New Credential {account} {account_username} {account_password} has been created")
+                print(f"New Credential for {account} {account_username} {account_password} has been created")
                 print("\n")
+                print("*" * 10)
 
             elif short_code == "gp":
                 print(
-                    "Please enter the account you want to generate password for..... ")
+                    "Please enter the account you want to generate password for > ")
                 social_media = input("Enter account type > ")
 
                 def random_password(string_length):
@@ -197,8 +199,8 @@ def main():
                     letters = string.ascii_letters
                     return "".join(random.choice(letters) for i in range(string_length))
 
-                print(
-                    f"Your random password for {social_media} is: ", random_password(8))
+                print(f"Your random password for {social_media} is: " "".join(random.choice(letters) for i in range(string_length)))
+                    # f"Your random password for {social_media} is: ", random_password(8))
 
             elif short_code == "dc":
 
