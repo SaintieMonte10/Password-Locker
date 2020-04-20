@@ -116,15 +116,17 @@ def main():
     -------
     """
     # global account_password
-    user_name = input("Enter your name > ")
+    user_name = input("Enter your name: ")
 
     print(f"Hello {user_name}, welcome to password locker")
     print("\n")
+    print("*"*20)
     ask = input(f"Hello {user_name}. Do you have an Account? YES/N0 > ").lower()
-
+    print("-"*50)
     if ask == "no":
         print("Signup with password locker to have access")
-        user_name = input("Enter your User name > ")
+        user_name = input("Enter your User name: ")
+        print("-"*20)
         create = input(
             f"Hello {user_name}. Do you want a generated password? YES/N0 > ")
         if create == "no":
@@ -132,25 +134,25 @@ def main():
             print("|Don't mind if your password is not visible as you type. WE go your password secured.|")#
             print("-"*87)
             getpass.getpass()
-            print("YOU ARE NOW LOGGED IN")
-        # elif create == "yes":
-        #     def random_password(string_length):
-        #         """
-        #         Parameters
-        #         ----------
-        #         string_length
-        #         Returns
-        #         -------
-        #         """
-        #         letters = string.ascii_letters
-        #         return "".join(random.choice(letters) for i in range(string_length))
+            print(f"YOU ARE NOW LOGGED IN SUCCESSFULY TO {social_media} HAVE FUN!!")
+        elif create == "yes":
+            def random_password(string_length):
+                """
+                Parameters
+                 ----------
+                 string_length
+                 Returns
+                 -------
+                 """
+                letters = string.ascii_letters
+                return "".join(random.choice(letters) for i in range(string_length))
 
-        #     print(
-        #         f"Your random password is: ", random_password(8))
-        #     print("You are now logged in: ")
+            print(
+                f"Your random password is: ", random_password(8))
+            print("You are now logged in: ")
         while True:
             print("""
-            USE THE SHORT CODES
+            KINDLY USE THE SHORT CODES
     1. cc - to create a new credential
     2. dc - to display credential
     3. fc - to find credential
@@ -181,7 +183,7 @@ def main():
 
             elif short_code == "gp":
                 print(
-                    "Please enter the account you want to generate password for > ")
+                    "Please enter the account you want to generate password for..... ")
                 social_media = input("Enter account type > ")
 
                 def random_password(string_length):
@@ -301,7 +303,7 @@ def main():
                     print("Here is a list of all your Credentials and passwords")
                     print("\n")
                     for credential in display_credentials():
-                        print(f"{credential.account} {credential.account_username}{account_password}")
+                        print(f"{credential.account} {credential.account_username}:  {account_password}")
                         print("\n")
                 else:
                     print("\n")
@@ -332,7 +334,7 @@ def main():
                 print(
                     f"Credential with  account username {my_delete} has been removed succefully")
             elif short_code == "ex":
-                print("Logged out")
+                print("You have logged out succesfully......See you soon!")
                 break
 
     else:
