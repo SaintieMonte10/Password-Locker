@@ -15,6 +15,12 @@
  5. gp - to generate a random password
  6. ex- to exit
 
+## Technologies used
+- Python3.6
+
+## Contact information
+Email: claremonte53@gmail.com
+
 
 ## License
 [license](./LICENSE)
