@@ -116,9 +116,9 @@ def main():
     -------
     """
   
-    user_name = input("Enter your name: ")
+    user_name = input("Enter your full name: ")
 
-    print(f"Hello {user_name}, welcome to password locker")
+    print(f"Heeeeey {user_name}, Welcome abroad")
     print("\n")
     print("*"*20)
     ask = input(f"Hello {user_name}. Do you have an Account? YES/N0 > ").lower()
@@ -130,11 +130,11 @@ def main():
         create = input(
             f"Hello {user_name}. Do you want a generated password? YES/N0 > ")
         if create == "NO":
-            print("-"*87)
+            print("-"*69)
             print("|Don't mind if your password is not visible as you type. WE go your password secured.|")#
-            print("-"*87)
+            print("-"*70)
             getpass.getpass()
-            print(f"YOU ARE NOW LOGGED IN SUCCESSFULY TO {social_media} HAVE FUN!!")
+            print(f"You have succesfully joined {social_media} HAVE FUN!!")
         elif create == "YES":
             def random_password(string_length):
                 """
@@ -150,31 +150,23 @@ def main():
 
             print(
                 f"Your random password is: ", random_password(8))
-            print("You are now logged in: ")
+            print("You have logged in successfully : ")
         while True:
-            print("""
-            KINDLY USE THE SHORT CODES
-    1. cc - to create a new credential
-    2. dc - to display credential
-    3. fc - to find credential
-    4. dl - to delete credential
-    5. gp - to generate a random password
-    6. ex- to exit 
-            """)
-            short_code = input("Use short-codes to navigate > ").lower()
+            print("Kindly use these short codes \n nc: To create a new credential \n dc: To display credential details \n lc: To locate credential \n dl: to delete credential \n gp: To generate a random password \n ex: To exit")
+            short_code = input("Use short-codes to continue\\")
 
-            if short_code == "cc":
-                print(" Create account")
+            if short_code == "nc":
+                print(" Create an account")
                 print("-" * 10)
 
-                print("Account ....")
-                account = input("> ")
+                print("Account type ....")
+                account = input("=>")
 
                 print("username ....")
-                account_username = input("> ")
+                account_username = input("=>")
 
                 print("Enter Password")
-                account_password = input("> ")
+                account_password = input("=>")
 
                 save_credential(create_credential(account, account_username, account_password))
 
@@ -185,8 +177,8 @@ def main():
 
             elif short_code == "gp":
                 print(
-                    "Please enter the account you want to generate password for > ")
-                social_media = input("Enter account type > ")
+                    "Please enter the type of account that you wanna generate a password for =>")
+                social_media = input("Enter account type eg.(facebook) ")
 
                 def random_password(string_length):
                     """
@@ -198,14 +190,12 @@ def main():
                     """
                     letters = string.ascii_letters
                     return "".join(random.choice(letters) for i in range(string_length))
-
                 print(f"Your random password for {social_media} is: " "".join(random.choice(letters) for i in range(string_length)))
-                    # f"Your random password for {social_media} is: ", random_password(8))
 
             elif short_code == "dc":
 
                 if display_credentials():
-                    print("Here is a list of all your Credentials and passwords")
+                    print("Here is a list of all your Accounts and Passwords")
                     print("\n")
                     for credential in display_credentials():
                         print(f"{credential.account} {credential.account_username}{account_password}")
@@ -213,10 +203,10 @@ def main():
                 else:
                     print("\n")
                     print(
-                        "You don't have any saved credentials yet. Try saving one")
+                        "Sorry you don't have any details yet. Try generating using short codes")
                     print("\n")
 
-            elif short_code == 'fc':
+            elif short_code == 'lc':
 
                 print("Enter the account username you want to search for")
 
@@ -233,7 +223,7 @@ def main():
 
             elif short_code == "dl":
                 print("Enter the account username of the credential you would like to delete.")
-                my_delete = input("> ")
+                my_delete = input("=>")
                 my_del = find_credential(my_delete)
                 Credential.credential_list.remove(my_del)
                 print(
@@ -244,35 +234,27 @@ def main():
 
     elif ask == "yes":
         print("Welcome back to our password locker. Enter your username and password to login")
-        user_name = input("Enter username > ")
+        user_name = input("Enter username: ")
         print("-"*87)
-        print("|Don't mind if your password is not vissible as you type. WE go your password secured.|")#
+        print("|Don't mind if your password is not vissible as you type. Your password is secure.|")#
         print("-"*87)
         account_password= getpass.getpass()
         while True:
-            print("""
-            USE THE SHORT CODES
-    1. cc - to create a new credential
-    2. dc - to display credential
-    3. fc - to find credential
-    4. dl - to delete credential
-    5. gp - to generate a random password
-    6. ex- to exit 
-            """)
-            short_code = input("Use short-codes to navigate > ").lower()
+            print("Kindly use these short codes \n nc: To create a new credential \n dc: To display credential \n lc: To find credential \n dl: to delete credential \n gp: To generate a random password \n ex: To exit")
+            short_code = input("Use short-codes to continue => ")
 
-            if short_code == "cc":
+            if short_code == "nc":
                 print(" Create account")
                 print("-" * 10)
 
                 print("Account ....")
-                account = input("> ")
+                account = input("=> ")
 
                 print("username ....")
-                account_username = input("> ")
+                account_username = input("=> ")
 
                 print("Enter Password")
-                account_password = input("> ")
+                account_password = input("=> ")
 
                 save_credential(create_credential(account, account_username, account_password))
 
@@ -283,7 +265,7 @@ def main():
             elif short_code == "gp":
                 print(
                     "Please enter the account you want to generate password for > ")
-                social_media = input("Enter account type > ")
+                social_media = input("Enter account type => ")
 
                 def random_password(string_length):
                     """
@@ -313,7 +295,7 @@ def main():
                         "You don't have any saved credentials yet. Try saving one")
                     print("\n")
 
-            elif short_code == 'fc':
+            elif short_code == 'lc':
 
                 print("Enter the account username you want to search for")
 
@@ -330,7 +312,7 @@ def main():
 
             elif short_code == "dl":
                 print("Enter the account username of the credential you would like to delete.")
-                my_delete = input("> ")
+                my_delete = input("=> ")
                 my_del = find_credential(my_delete)
                 Credential.credential_list.remove(my_del)
                 print(
