@@ -9,7 +9,7 @@ Password-Locker is a python application that helps users generate and store pass
 
 ## Setup installation
 * git clone the following command.
-* git clone https://github.com/loisemuthoni/p-locker.git
+* git clone https://github.com/SaintieMonte10/Password-Locker.git
 * Run the ./run.py script on the terminal to open.
 ## BDD
 * cc - to create a new credential
