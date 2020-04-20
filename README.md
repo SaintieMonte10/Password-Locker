@@ -5,15 +5,19 @@
 * Clare Richards
 
 ## Description
+Password-Locker is a python application that helps users generate and store passwords for their accounts such as facebook, twitter, gmail etc The password locker runs on the terminal and uses short codes to navigate through it.
 
-
-## Set up instructions
- 1. cc - to create a new credential
- 2. dc - to display credential
- 3. fc - to find credential
- 4. dl - to delete credential
- 5. gp - to generate a random password
- 6. ex- to exit
+## Setup installation
+* git clone the following command.
+* git clone https://github.com/loisemuthoni/p-locker.git
+* Run the ./run.py script on the terminal to open.
+## BDD
+* cc - to create a new credential
+* dc - to display credential
+* fc - to find credential
+* dl - to delete credential
+* gp - to generate a random password
+* ex- to exit
 
 ## Technologies used
 - Python3.6
