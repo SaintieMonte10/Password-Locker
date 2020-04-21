@@ -118,7 +118,7 @@ def main():
   
     user_name = input("Enter your full name: ")
 
-    print(f"Heeeeey {user_name}, Welcome abroad")
+    print(f"Heeeeey {user_name}, Welcome aboard")
     print("\n")
     print("*"*20)
     ask = input(f"Hello {user_name}. Do you have an Account? YES/N0 > ").lower()
@@ -128,14 +128,14 @@ def main():
         user_name = input("Enter your User name: ")
         print("-"*20)
         create = input(
-            f"Hello {user_name}. Do you want a generated password? YES/N0 > ")
-        if create == "NO":
+            f"Hello {user_name}. Do you want a generated password? Yes/N0 > ")
+        if create == "No":
             print("-"*69)
-            print("|Don't mind if your password is not visible as you type. WE go your password secured.|")#
-            print("-"*70)
+            print("|Don't mind if your password is not visible as you type. Your password is sucured.|")#
+            print("-"*90)
             getpass.getpass()
             print(f"You have succesfully joined {social_media} HAVE FUN!!")
-        elif create == "YES":
+        elif create == "Yes":
             def random_password(string_length):
                 """
                 Parameters
