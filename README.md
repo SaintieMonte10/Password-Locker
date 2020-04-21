@@ -12,9 +12,9 @@ Password-Locker is a python application that helps users generate and store pass
 * git clone https://github.com/SaintieMonte10/Password-Locker.git
 * Run the ./run.py script on the terminal to open.
 ## BDD
-* cc - to create a new credential
+* nc - to create a new credential
 * dc - to display credential
-* fc - to find credential
+* lc - to find credential
 * dl - to delete credential
 * gp - to generate a random password
 * ex- to exit
