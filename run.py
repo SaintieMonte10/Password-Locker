@@ -1,4 +1,4 @@
-#python3.6
+#!/usr/bin/env python3.6
 from password import User, Credential
 import random
 import string
@@ -29,15 +29,6 @@ def generate_password(user):
     return user.generate_random_password()
 
 
-def delete_user(user):
-    """
-    Function to delete user
-    ----------
-    user
-    """
-    user.delete_user()
-
-
 def save_user(user):
     """
     Function to save user
@@ -45,6 +36,15 @@ def save_user(user):
     user
     """
     user.save_user()
+
+
+def delete_user(user):
+    """
+    Function to delete user
+    ----------
+    user
+    """
+    user.delete_user()
 
 
 def create_credential(account, account_username, account_password):
@@ -121,15 +121,21 @@ def main():
     print(f"Heeeeey {user_name}, Welcome aboard")
     print("\n")
     print("*"*20)
-    ask = input(f"Hello {user_name}. Do you have an Account? YES/N0 > ").lower()
+    ask = input(f"Hello {user_name}. Do you have an Account? Yes/No => ")
     print("-"*50)
     if ask == "no":
         print("Signup with password locker to have access")
         user_name = input("Enter your User name: ")
         print("-"*20)
         create = input(
-            f"Hello {user_name}. Do you want a generated password? Yes/N0 > ")
-        if create == "Yes":
+            f"Do you want us to generate a password for you? Yes/N0 => ")
+        if create == "No":
+            print("-"*69)
+            print("|Don't mind if your password is not visible as you type. Your password is sucured.|")#
+            print("-"*90)
+            getpass.getpass()
+            print(f"You have succesfully joined {social_media} HAVE FUN!!")
+        elif create == "Yes":
             def random_password(string_length):
                 """
                 Parameters
@@ -140,23 +146,14 @@ def main():
                  """
                 letters = string.ascii_letters
                 return "".join(random.choice(letters) for i in range(string_length))
-            print("Your password is ")
-
             print(
                 f"Your random password is: ", random_password(8))
-            print("You have logged in successfully : ")
-
-
-        elif create == "No":
-            print("-"*69)
-            print("|Don't mind if your password is not visible as you type. Your password is sucured.|")#
-            print("-"*90)
-            getpass.getpass()
-            print(f"You have succesfully joined {social_media} HAVE FUN!!")
-        
+            print("*" * 10)
+            print("*You have logged in successfully* ")
+            print("-" * 30)
         while True:
             print("Kindly use these short codes \n nc: To create a new credential \n dc: To display credential details \n lc: To locate credential \n dl: to delete credential \n gp: To generate a random password \n ex: To exit")
-            short_code = input("Use short-codes to continue\\")
+            short_code = input("Use short-codes to continue =>")
 
             if short_code == "nc":
                 print(" Create an account")
@@ -177,6 +174,23 @@ def main():
                 print(f"New Credential for {account} {account_username} {account_password} has been created")
                 print("\n")
                 print("*" * 10)
+
+            elif short_code == "gp":
+                print(
+                    "Please enter the type of account that you wanna generate a password for =>")
+                social_media = input("Enter account type eg.(facebook) ")
+
+                def random_password(string_length):
+                    """
+                    Parameters
+                    ----------
+                    string_length
+                    Returns
+                    -------
+                    """
+                    letters = string.ascii_letters
+                    return "".join(random.choice(letters) for i in range(string_length))
+                print(f"Your random password for {social_media} is: " "".join(random.choice(letters) for i in range(string_length)))
 
             elif short_code == "dc":
 
@@ -206,24 +220,6 @@ def main():
 
                 else:
                     print("That credential does not exist")
-            
-            elif short_code == "gp":
-                    print(
-                        "Please enter the type of account that you wanna generate a password for =>")
-                    social_media = input("Enter account type eg.(facebook) ")
-
-                    def random_password(string_length):
-                        """
-                        Parameters
-                        ----------
-                        string_length
-                        Returns
-                        -------
-                        """
-                        letters = string.ascii_letters
-                        return "".join(random.choice(letters) for i in range(string_length))
-                    print(f"Your random password for {social_media} is: " "".join(random.choice(letters) for i in range(string_length)))
-
 
             elif short_code == "dl":
                 print("Enter the account username of the credential you would like to delete.")
@@ -233,7 +229,7 @@ def main():
                 print(
                     f"Credential with  account username {my_delete} has been removed succefully")
             elif short_code == "ex":
-                print("Logged out")
+                print("You have logged out of Password-Locker")
                 break
 
     elif ask == "yes":
