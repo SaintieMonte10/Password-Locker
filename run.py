@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.6
+#python3.6
 from password import User, Credential
 import random
 import string
@@ -29,15 +29,6 @@ def generate_password(user):
     return user.generate_random_password()
 
 
-def save_user(user):
-    """
-    Function to save user
-    ----------
-    user
-    """
-    user.save_user()
-
-
 def delete_user(user):
     """
     Function to delete user
@@ -45,6 +36,15 @@ def delete_user(user):
     user
     """
     user.delete_user()
+
+
+def save_user(user):
+    """
+    Function to save user
+    ----------
+    user
+    """
+    user.save_user()
 
 
 def create_credential(account, account_username, account_password):
@@ -129,13 +129,7 @@ def main():
         print("-"*20)
         create = input(
             f"Hello {user_name}. Do you want a generated password? Yes/N0 > ")
-        if create == "No":
-            print("-"*69)
-            print("|Don't mind if your password is not visible as you type. Your password is sucured.|")#
-            print("-"*90)
-            getpass.getpass()
-            print(f"You have succesfully joined {social_media} HAVE FUN!!")
-        elif create == "Yes":
+        if create == "Yes":
             def random_password(string_length):
                 """
                 Parameters
@@ -151,6 +145,15 @@ def main():
             print(
                 f"Your random password is: ", random_password(8))
             print("You have logged in successfully : ")
+
+
+        elif create == "No":
+            print("-"*69)
+            print("|Don't mind if your password is not visible as you type. Your password is sucured.|")#
+            print("-"*90)
+            getpass.getpass()
+            print(f"You have succesfully joined {social_media} HAVE FUN!!")
+        
         while True:
             print("Kindly use these short codes \n nc: To create a new credential \n dc: To display credential details \n lc: To locate credential \n dl: to delete credential \n gp: To generate a random password \n ex: To exit")
             short_code = input("Use short-codes to continue\\")
@@ -174,23 +177,6 @@ def main():
                 print(f"New Credential for {account} {account_username} {account_password} has been created")
                 print("\n")
                 print("*" * 10)
-
-            elif short_code == "gp":
-                print(
-                    "Please enter the type of account that you wanna generate a password for =>")
-                social_media = input("Enter account type eg.(facebook) ")
-
-                def random_password(string_length):
-                    """
-                    Parameters
-                    ----------
-                    string_length
-                    Returns
-                    -------
-                    """
-                    letters = string.ascii_letters
-                    return "".join(random.choice(letters) for i in range(string_length))
-                print(f"Your random password for {social_media} is: " "".join(random.choice(letters) for i in range(string_length)))
 
             elif short_code == "dc":
 
@@ -220,6 +206,24 @@ def main():
 
                 else:
                     print("That credential does not exist")
+            
+            elif short_code == "gp":
+                    print(
+                        "Please enter the type of account that you wanna generate a password for =>")
+                    social_media = input("Enter account type eg.(facebook) ")
+
+                    def random_password(string_length):
+                        """
+                        Parameters
+                        ----------
+                        string_length
+                        Returns
+                        -------
+                        """
+                        letters = string.ascii_letters
+                        return "".join(random.choice(letters) for i in range(string_length))
+                    print(f"Your random password for {social_media} is: " "".join(random.choice(letters) for i in range(string_length)))
+
 
             elif short_code == "dl":
                 print("Enter the account username of the credential you would like to delete.")
